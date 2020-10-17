@@ -1,0 +1,89 @@
+h1 {
+  color: #808080;
+}
+
+.calculator{
+  margin-bottom: 10mm;
+  width: 380px;
+}
+
+.inputZone{
+  width: 380px;
+  margin-bottom: 3mm;
+}
+
+
+.toggle-button{
+  margin-left: 2mm;
+}
+
+.input_amount{
+  width: 100px;
+  text-align: right;
+}
+
+.input_total{
+  width: 100px;
+  text-align: right;
+}
+
+.input_fee{
+  margin-left: 2mm;
+  width: 40px;
+  text-align: right;
+}
+
+.yokoTotal{
+  width: 80px;
+  margin-left:2mm;
+  text-align: right;
+}
+
+.numOfData{
+  margin-left: 2mm;
+  width: 25px;
+  text-align: right;
+}
+
+#インプットのタイプをナンバーにして、矢印のスピンボタンを表示しない
+nput[type="number"]::-webkit-outer-spin-button, 
+input[type="number"]::-webkit-inner-spin-button { 
+  -webkit-appearance: none; 
+  margin: 0; 
+} 
+
+[id="calculator1"]{
+  background-image: url(./1.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+[id="calculator2"]{
+  background-image: url(./2.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+[id="calculator3"]{
+  background-image: url(./3.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+[id="calculator4"]{
+  background-image: url(./4.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+[id="calculator5"]{
+  background-image: url(./5.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+[id="calculator6"]{
+  background-image: url(./6.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+}
