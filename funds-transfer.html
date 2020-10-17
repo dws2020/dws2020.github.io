@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<head>
+  <title>DS振込金額計算</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=380; minimum-scale=1.0; maximum-scale=2.0;" />
+  <meta class="description" content="ディスクリプションはとりあえず未設定" />
+  <link rel="stylesheet" type="text/css" href =".\fundstransfer.css">
+  
+  <!--スマホショートカット用アイコン画像の指定
+  <link rel="apple-touch-icon-precomposed" href="画像のURL" />　　　　-->
+
+</head>
+
+<body>
+  <div class="header">
+    <h1>振込金額計算</h1>
+    <input type="checkbox" id="memberFlag"><label class="toggle-button" for="memberFlag">会員専用</label>
+  </div>
+  <div class="calculator" id="calculator1">
+    <div class="inputZone">
+      <div class="input_area">01-<input type="number" class="input_amount" id="1" onchange="inputValue(1)"><input type="checkbox" class="B_ourBank" id="OBK1" onchange="inputValue(1)"><label class="toggle-button" for="OBK1">自金庫</label><input class="input_fee" id="fee1" onchange="sumFeeAndsmallSum()"><input class="yokoTotal", id="yokoTotal1"></div>
+      <div class="input_area">02-<input type="number" class="input_amount" id="2" onchange="inputValue(2)"><input type="checkbox" class="B_ourBank" id="OBK2" onchange="inputValue(2)"><label class="toggle-button" for="OBK2">自金庫</label><input class="input_fee" id="fee2" onchange="sumFeeAndsmallSum()"><input class="yokoTotal", id="yokoTotal2"></div>
+      <div class="input_area">03-<input type="number" class="input_amount" id="3" onchange="inputValue(3)"><input type="checkbox" class="B_ourBank" id="OBK3" onchange="inputValue(3)"><label class="toggle-button" for="OBK3">自金庫</label><input class="input_fee" id="fee3" onchange="sumFeeAndsmallSum()"><input class="yokoTotal", id="yokoTotal3"></div>
+      <div class="input_area">04-<input type="number" class="input_amount" id="4" onchange="inputValue(4)"><input type="checkbox" class="B_ourBank" id="OBK4" onchange="inputValue(4)"><label class="toggle-button" for="OBK4">自金庫</label><input class="input_fee" id="fee4" onchange="sumFeeAndsmallSum()"><input class="yokoTotal", id="yokoTotal4"></div>
+      <div class="input_area">05-<input type="number" class="input_amount" id="5" onchange="inputValue(5)"><input type="checkbox" class="B_ourBank" id="OBK5" onchange="inputValue(5)"><label class="toggle-button" for="OBK5">自金庫</label><input class="input_fee" id="fee5" onchange="sumFeeAndsmallSum()"><input class="yokoTotal", id="yokoTotal5"></div>
+      <div class="input_area">06-<input type="number" class="input_amount" id="6" onchange="inputValue(6)"><input type="checkbox" class="B_ourBank" id="OBK6" onchange="inputValue(6)"><label class="toggle-button" for="OBK6">自金庫</label><input class="input_fee" id="fee6" onchange="sumFeeAndsmallSum()"><input class="yokoTotal", id="yokoTotal6"></div>
+      <div class="input_area">07-<input type="number" class="input_amount" id="7" onchange="inputValue(7)"><input type="checkbox" class="B_ourBank" id="OBK7" onchange="inputValue(7)"><label class="toggle-button" for="OBK7">自金庫</label><input class="input_fee" id="fee7" onchange="sumFeeAndsmallSum()"><input class="yokoTotal", id="yokoTotal7"></div>
+      <div class="input_area">08-<input type="number" class="input_amount" id="8" onchange="inputValue(8)"><input type="checkbox" class="B_ourBank" id="OBK8" onchange="inputValue(8)"><label class="toggle-button" for="OBK8">自金庫</label><input class="input_fee" id="fee8" onchange="sumFeeAndsmallSum()"><input class="yokoTotal", id="yokoTotal8"></div>
+      <div class="input_area">09-<input type="number" class="input_amount" id="9" onchange="inputValue(9)"><input type="checkbox" class="B_ourBank" id="OBK9" onchange="inputValue(9)"><label class="toggle-button" for="OBK9">自金庫</label><input class="input_fee" id="fee9" onchange="sumFeeAndsmallSum()"><input class="yokoTotal", id="yokoTotal9"></div>
+      <div class="input_area">10-<input type="number" class="input_amount" id="10" onchange="inputValue(10)"><input type="checkbox" class="B_ourBank" id="OBK10" onchange="inputValue(10)"><label class="toggle-button" for="OBK10">自金庫</label><input class="input_fee" id="fee10" onchange="sumFeeAndsmallSum()"><input class="yokoTotal", id="yokoTotal10"></div>
+    </div>
+    <div class="total">
+      <div>1:_ <input class="input_total" id="sSum0"><input class="numOfData" id="numOfData0"><input class="input_fee" id="totalFee0"><input class="yokoTotal", id="totalYokoTotal0"></div>
+      <div>計<input class="input_total" id="bSum"><input class="numOfData" id="numOfDataT"><input class="input_fee" id="totalFeeT"><input class="yokoTotal", id="totalYokoTotalT"></div>
+    </div>
+  </div>
+
+  <div class="calculator" id="calculator2">
+    <div class="inputZone">
+      <div class="input_area">01-<input type="number" class="input_amount" id="11" onchange="inputValue(11)"><input type="checkbox" class="B_ourBank" id="OBK11" onchange="inputValue(11)"><label class="toggle-button" for="OBK11">自金庫</label><input class="input_fee" id="fee11" onchange="sumFeeAndsmallSum()"><input class="yokoTotal", id="yokoTotal11"></div>
+      <div class="input_area">02-<input type="number" class="input_amount" id="12" onchange="inputValue(12)"><input type="checkbox" class="B_ourBank" id="OBK12" onchange="inputValue(12)"><label class="toggle-button" for="OBK12">自金庫</label><input class="input_fee" id="fee12" onchange="sumFeeAndsmallSum()"><input class="yokoTotal", id="yokoTotal12"></div>
+      <div class="input_area">03-<input type="number" class="input_amount" id="13" onchange="inputValue(13)"><input type="checkbox" class="B_ourBank" id="OBK13" onchange="inputValue(13)"><label class="toggle-button" for="OBK13">自金庫</label><input class="input_fee" id="fee13" onchange="sumFeeAndsmallSum()"><input class="yokoTotal", id="yokoTotal13"></div>
+      <div class="input_area">04-<input type="number" class="input_amount" id="14" onchange="inputValue(14)"><input type="checkbox" class="B_ourBank" id="OBK14" onchange="inputValue(14)"><label class="toggle-button" for="OBK14">自金庫</label><input class="input_fee" id="fee14" onchange="sumFeeAndsmallSum()"><input class="yokoTotal", id="yokoTotal14"></div>
+      <div class="input_area">05-<input type="number" class="input_amount" id="15" onchange="inputValue(15)"><input type="checkbox" class="B_ourBank" id="OBK15" onchange="inputValue(15)"><label class="toggle-button" for="OBK15">自金庫</label><input class="input_fee" id="fee15" onchange="sumFeeAndsmallSum()"><input class="yokoTotal", id="yokoTotal15"></div>
+      <div class="input_area">06-<input type="number" class="input_amount" id="16" onchange="inputValue(16)"><input type="checkbox" class="B_ourBank" id="OBK16" onchange="inputValue(16)"><label class="toggle-button" for="OBK16">自金庫</label><input class="input_fee" id="fee16" onchange="sumFeeAndsmallSum()"><input class="yokoTotal", id="yokoTotal16"></div>
+      <div class="input_area">07-<input type="number" class="input_amount" id="17" onchange="inputValue(17)"><input type="checkbox" class="B_ourBank" id="OBK17" onchange="inputValue(17)"><label class="toggle-button" for="OBK17">自金庫</label><input class="input_fee" id="fee17" onchange="sumFeeAndsmallSum()"><input class="yokoTotal", id="yokoTotal17"></div>
+      <div class="input_area">08-<input type="number" class="input_amount" id="18" onchange="inputValue(18)"><input type="checkbox" class="B_ourBank" id="OBK18" onchange="inputValue(18)"><label class="toggle-button" for="OBK18">自金庫</label><input class="input_fee" id="fee18" onchange="sumFeeAndsmallSum()"><input class="yokoTotal", id="yokoTotal18"></div>
+      <div class="input_area">09-<input type="number" class="input_amount" id="19" onchange="inputValue(19)"><input type="checkbox" class="B_ourBank" id="OBK19" onchange="inputValue(19)"><label class="toggle-button" for="OBK19">自金庫</label><input class="input_fee" id="fee19" onchange="sumFeeAndsmallSum()"><input class="yokoTotal", id="yokoTotal19"></div>
+      <div class="input_area">10-<input type="number" class="input_amount" id="20" onchange="inputValue(20)"><input type="checkbox" class="B_ourBank" id="OBK20" onchange="inputValue(20)"><label class="toggle-button" for="OBK20">自金庫</label><input class="input_fee" id="fee20" onchange="sumFeeAndsmallSum()"><input class="yokoTotal", id="yokoTotal20"></div>
+    </div>
+    <div class="total">
+      <div>2:_ <input class="input_total" id="sSum1"><input class="numOfData" id="numOfData1"><input class="input_fee" id="totalFee1"><input class="yokoTotal", id="totalYokoTotal1"></div>
+    </div>
+  </div>
+
+  <div class="calculator" id="calculator3">
+    <div class="inputZone">
+      <div class="input_area">01-<input type="number" class="input_amount" id="21" onchange="inputValue(21)"><input type="checkbox" class="B_ourBank" id="OBK21" onchange="inputValue(21)"><label class="toggle-button" for="OBK21">自金庫</label><input class="input_fee" id="fee21" onchange="sumFeeAndsmallSum()"><input class="yokoTotal", id="yokoTotal21"></div>
+      <div class="input_area">02-<input type="number" class="input_amount" id="22" onchange="inputValue(22)"><input type="checkbox" class="B_ourBank" id="OBK22" onchange="inputValue(22)"><label class="toggle-button" for="OBK22">自金庫</label><input class="input_fee" id="fee22" onchange="sumFeeAndsmallSum()"><input class="yokoTotal", id="yokoTotal22"></div>
+      <div class="input_area">03-<input type="number" class="input_amount" id="23" onchange="inputValue(23)"><input type="checkbox" class="B_ourBank" id="OBK23" onchange="inputValue(23)"><label class="toggle-button" for="OBK23">自金庫</label><input class="input_fee" id="fee23" onchange="sumFeeAndsmallSum()"><input class="yokoTotal", id="yokoTotal23"></div>
+      <div class="input_area">04-<input type="number" class="input_amount" id="24" onchange="inputValue(24)"><input type="checkbox" class="B_ourBank" id="OBK24" onchange="inputValue(24)"><label class="toggle-button" for="OBK24">自金庫</label><input class="input_fee" id="fee24" onchange="sumFeeAndsmallSum()"><input class="yokoTotal", id="yokoTotal24"></div>
+      <div class="input_area">05-<input type="number" class="input_amount" id="25" onchange="inputValue(25)"><input type="checkbox" class="B_ourBank" id="OBK25" onchange="inputValue(25)"><label class="toggle-button" for="OBK25">自金庫</label><input class="input_fee" id="fee25" onchange="sumFeeAndsmallSum()"><input class="yokoTotal", id="yokoTotal25"></div>
+      <div class="input_area">06-<input type="number" class="input_amount" id="26" onchange="inputValue(26)"><input type="checkbox" class="B_ourBank" id="OBK26" onchange="inputValue(26)"><label class="toggle-button" for="OBK26">自金庫</label><input class="input_fee" id="fee26" onchange="sumFeeAndsmallSum()"><input class="yokoTotal", id="yokoTotal26"></div>
+      <div class="input_area">07-<input type="number" class="input_amount" id="27" onchange="inputValue(27)"><input type="checkbox" class="B_ourBank" id="OBK27" onchange="inputValue(27)"><label class="toggle-button" for="OBK27">自金庫</label><input class="input_fee" id="fee27" onchange="sumFeeAndsmallSum()"><input class="yokoTotal", id="yokoTotal27"></div>
+      <div class="input_area">08-<input type="number" class="input_amount" id="28" onchange="inputValue(28)"><input type="checkbox" class="B_ourBank" id="OBK28" onchange="inputValue(28)"><label class="toggle-button" for="OBK28">自金庫</label><input class="input_fee" id="fee28" onchange="sumFeeAndsmallSum()"><input class="yokoTotal", id="yokoTotal28"></div>
+      <div class="input_area">09-<input type="number" class="input_amount" id="29" onchange="inputValue(29)"><input type="checkbox" class="B_ourBank" id="OBK29" onchange="inputValue(29)"><label class="toggle-button" for="OBK29">自金庫</label><input class="input_fee" id="fee29" onchange="sumFeeAndsmallSum()"><input class="yokoTotal", id="yokoTotal29"></div>
+      <div class="input_area">10-<input type="number" class="input_amount" id="30" onchange="inputValue(30)"><input type="checkbox" class="B_ourBank" id="OBK30" onchange="inputValue(30)"><label class="toggle-button" for="OBK30">自金庫</label><input class="input_fee" id="fee30" onchange="sumFeeAndsmallSum()"><input class="yokoTotal", id="yokoTotal30"></div>
+    </div>
+    <div class="total">
+      <div>3:_ <input class="input_total" id="sSum2"><input class="numOfData" id="numOfData2"><input class="input_fee" id="totalFee2"><input class="yokoTotal", id="totalYokoTotal2"></div>
+    </div>
+  </div>
+
+  <div class="calculator" id="calculator4">
+    <div class="inputZone">
+      <div class="input_area">01-<input type="number" class="input_amount" id="31" onchange="inputValue(31)"><input type="checkbox" class="B_ourBank" id="OBK31" onchange="inputValue(31)"><label class="toggle-button" for="OBK31">自金庫</label><input class="input_fee" id="fee31" onchange="sumFeeAndsmallSum()"><input class="yokoTotal", id="yokoTotal31"></div>
+      <div class="input_area">02-<input type="number" class="input_amount" id="32" onchange="inputValue(32)"><input type="checkbox" class="B_ourBank" id="OBK32" onchange="inputValue(32)"><label class="toggle-button" for="OBK32">自金庫</label><input class="input_fee" id="fee32" onchange="sumFeeAndsmallSum()"><input class="yokoTotal", id="yokoTotal32"></div>
+      <div class="input_area">03-<input type="number" class="input_amount" id="33" onchange="inputValue(33)"><input type="checkbox" class="B_ourBank" id="OBK33" onchange="inputValue(33)"><label class="toggle-button" for="OBK33">自金庫</label><input class="input_fee" id="fee33" onchange="sumFeeAndsmallSum()"><input class="yokoTotal", id="yokoTotal33"></div>
+      <div class="input_area">04-<input type="number" class="input_amount" id="34" onchange="inputValue(34)"><input type="checkbox" class="B_ourBank" id="OBK34" onchange="inputValue(34)"><label class="toggle-button" for="OBK34">自金庫</label><input class="input_fee" id="fee34" onchange="sumFeeAndsmallSum()"><input class="yokoTotal", id="yokoTotal34"></div>
+      <div class="input_area">05-<input type="number" class="input_amount" id="35" onchange="inputValue(35)"><input type="checkbox" class="B_ourBank" id="OBK35" onchange="inputValue(35)"><label class="toggle-button" for="OBK35">自金庫</label><input class="input_fee" id="fee35" onchange="sumFeeAndsmallSum()"><input class="yokoTotal", id="yokoTotal35"></div>
+      <div class="input_area">06-<input type="number" class="input_amount" id="36" onchange="inputValue(36)"><input type="checkbox" class="B_ourBank" id="OBK36" onchange="inputValue(36)"><label class="toggle-button" for="OBK36">自金庫</label><input class="input_fee" id="fee36" onchange="sumFeeAndsmallSum()"><input class="yokoTotal", id="yokoTotal36"></div>
+      <div class="input_area">07-<input type="number" class="input_amount" id="37" onchange="inputValue(37)"><input type="checkbox" class="B_ourBank" id="OBK37" onchange="inputValue(37)"><label class="toggle-button" for="OBK37">自金庫</label><input class="input_fee" id="fee37" onchange="sumFeeAndsmallSum()"><input class="yokoTotal", id="yokoTotal37"></div>
+      <div class="input_area">08-<input type="number" class="input_amount" id="38" onchange="inputValue(38)"><input type="checkbox" class="B_ourBank" id="OBK38" onchange="inputValue(38)"><label class="toggle-button" for="OBK38">自金庫</label><input class="input_fee" id="fee38" onchange="sumFeeAndsmallSum()"><input class="yokoTotal", id="yokoTotal38"></div>
+      <div class="input_area">09-<input type="number" class="input_amount" id="39" onchange="inputValue(39)"><input type="checkbox" class="B_ourBank" id="OBK39" onchange="inputValue(39)"><label class="toggle-button" for="OBK39">自金庫</label><input class="input_fee" id="fee39" onchange="sumFeeAndsmallSum()"><input class="yokoTotal", id="yokoTotal39"></div>
+      <div class="input_area">10-<input type="number" class="input_amount" id="40" onchange="inputValue(40)"><input type="checkbox" class="B_ourBank" id="OBK40" onchange="inputValue(40)"><label class="toggle-button" for="OBK40">自金庫</label><input class="input_fee" id="fee40" onchange="sumFeeAndsmallSum()"><input class="yokoTotal", id="yokoTotal40"></div>
+    </div>
+    <div class="total">
+      <div>4:_ <input class="input_total" id="sSum3"><input class="numOfData" id="numOfData3"><input class="input_fee" id="totalFee3"><input class="yokoTotal", id="totalYokoTotal3"></div>
+    </div>
+  </div>
+
+  <div class="calculator" id="calculator5">
+    <div class="inputZone">
+      <div class="input_area">01-<input type="number" class="input_amount" id="41" onchange="inputValue(41)"><input type="checkbox" class="B_ourBank" id="OBK41" onchange="inputValue(41)"><label class="toggle-button" for="OBK41">自金庫</label><input class="input_fee" id="fee41" onchange="sumFeeAndsmallSum()"><input class="yokoTotal", id="yokoTotal41"></div>
+      <div class="input_area">02-<input type="number" class="input_amount" id="42" onchange="inputValue(42)"><input type="checkbox" class="B_ourBank" id="OBK42" onchange="inputValue(42)"><label class="toggle-button" for="OBK42">自金庫</label><input class="input_fee" id="fee42" onchange="sumFeeAndsmallSum()"><input class="yokoTotal", id="yokoTotal42"></div>
+      <div class="input_area">03-<input type="number" class="input_amount" id="43" onchange="inputValue(43)"><input type="checkbox" class="B_ourBank" id="OBK43" onchange="inputValue(43)"><label class="toggle-button" for="OBK43">自金庫</label><input class="input_fee" id="fee43" onchange="sumFeeAndsmallSum()"><input class="yokoTotal", id="yokoTotal43"></div>
+      <div class="input_area">04-<input type="number" class="input_amount" id="44" onchange="inputValue(44)"><input type="checkbox" class="B_ourBank" id="OBK44" onchange="inputValue(44)"><label class="toggle-button" for="OBK44">自金庫</label><input class="input_fee" id="fee44" onchange="sumFeeAndsmallSum()"><input class="yokoTotal", id="yokoTotal44"></div>
+      <div class="input_area">05-<input type="number" class="input_amount" id="45" onchange="inputValue(45)"><input type="checkbox" class="B_ourBank" id="OBK45" onchange="inputValue(45)"><label class="toggle-button" for="OBK45">自金庫</label><input class="input_fee" id="fee45" onchange="sumFeeAndsmallSum()"><input class="yokoTotal", id="yokoTotal45"></div>
+      <div class="input_area">06-<input type="number" class="input_amount" id="46" onchange="inputValue(46)"><input type="checkbox" class="B_ourBank" id="OBK46" onchange="inputValue(46)"><label class="toggle-button" for="OBK46">自金庫</label><input class="input_fee" id="fee46" onchange="sumFeeAndsmallSum()"><input class="yokoTotal", id="yokoTotal46"></div>
+      <div class="input_area">07-<input type="number" class="input_amount" id="47" onchange="inputValue(47)"><input type="checkbox" class="B_ourBank" id="OBK47" onchange="inputValue(47)"><label class="toggle-button" for="OBK47">自金庫</label><input class="input_fee" id="fee47" onchange="sumFeeAndsmallSum()"><input class="yokoTotal", id="yokoTotal47"></div>
+      <div class="input_area">08-<input type="number" class="input_amount" id="48" onchange="inputValue(48)"><input type="checkbox" class="B_ourBank" id="OBK48" onchange="inputValue(48)"><label class="toggle-button" for="OBK48">自金庫</label><input class="input_fee" id="fee48" onchange="sumFeeAndsmallSum()"><input class="yokoTotal", id="yokoTotal48"></div>
+      <div class="input_area">09-<input type="number" class="input_amount" id="49" onchange="inputValue(49)"><input type="checkbox" class="B_ourBank" id="OBK49" onchange="inputValue(49)"><label class="toggle-button" for="OBK49">自金庫</label><input class="input_fee" id="fee49" onchange="sumFeeAndsmallSum()"><input class="yokoTotal", id="yokoTotal49"></div>
+      <div class="input_area">10-<input type="number" class="input_amount" id="50" onchange="inputValue(50)"><input type="checkbox" class="B_ourBank" id="OBK50" onchange="inputValue(50)"><label class="toggle-button" for="OBK50">自金庫</label><input class="input_fee" id="fee50" onchange="sumFeeAndsmallSum()"><input class="yokoTotal", id="yokoTotal50"></div>
+    </div>
+    <div class="total">
+      <div>5:_ <input class="input_total" id="sSum4"><input class="numOfData" id="numOfData4"><input class="input_fee" id="totalFee4"><input class="yokoTotal", id="totalYokoTotal4"></div>
+    </div>
+  </div>
+
+  <div class="calculator" id="calculator6">
+    <div class="inputZone">
+      <div class="input_area">01-<input type="number" class="input_amount" id="51" onchange="inputValue(51)"><input type="checkbox" class="B_ourBank" id="OBK51" onchange="inputValue(51)"><label class="toggle-button" for="OBK51">自金庫</label><input class="input_fee" id="fee51" onchange="sumFeeAndsmallSum()"><input class="yokoTotal", id="yokoTotal51"></div>
+      <div class="input_area">02-<input type="number" class="input_amount" id="52" onchange="inputValue(52)"><input type="checkbox" class="B_ourBank" id="OBK52" onchange="inputValue(52)"><label class="toggle-button" for="OBK52">自金庫</label><input class="input_fee" id="fee52" onchange="sumFeeAndsmallSum()"><input class="yokoTotal", id="yokoTotal52"></div>
+      <div class="input_area">03-<input type="number" class="input_amount" id="53" onchange="inputValue(53)"><input type="checkbox" class="B_ourBank" id="OBK53" onchange="inputValue(53)"><label class="toggle-button" for="OBK53">自金庫</label><input class="input_fee" id="fee53" onchange="sumFeeAndsmallSum()"><input class="yokoTotal", id="yokoTotal53"></div>
+      <div class="input_area">04-<input type="number" class="input_amount" id="54" onchange="inputValue(54)"><input type="checkbox" class="B_ourBank" id="OBK54" onchange="inputValue(54)"><label class="toggle-button" for="OBK54">自金庫</label><input class="input_fee" id="fee54" onchange="sumFeeAndsmallSum()"><input class="yokoTotal", id="yokoTotal54"></div>
+      <div class="input_area">05-<input type="number" class="input_amount" id="55" onchange="inputValue(55)"><input type="checkbox" class="B_ourBank" id="OBK55" onchange="inputValue(55)"><label class="toggle-button" for="OBK55">自金庫</label><input class="input_fee" id="fee55" onchange="sumFeeAndsmallSum()"><input class="yokoTotal", id="yokoTotal55"></div>
+      <div class="input_area">06-<input type="number" class="input_amount" id="56" onchange="inputValue(56)"><input type="checkbox" class="B_ourBank" id="OBK56" onchange="inputValue(56)"><label class="toggle-button" for="OBK56">自金庫</label><input class="input_fee" id="fee56" onchange="sumFeeAndsmallSum()"><input class="yokoTotal", id="yokoTotal56"></div>
+      <div class="input_area">07-<input type="number" class="input_amount" id="57" onchange="inputValue(57)"><input type="checkbox" class="B_ourBank" id="OBK57" onchange="inputValue(57)"><label class="toggle-button" for="OBK57">自金庫</label><input class="input_fee" id="fee57" onchange="sumFeeAndsmallSum()"><input class="yokoTotal", id="yokoTotal57"></div>
+      <div class="input_area">08-<input type="number" class="input_amount" id="58" onchange="inputValue(58)"><input type="checkbox" class="B_ourBank" id="OBK58" onchange="inputValue(58)"><label class="toggle-button" for="OBK58">自金庫</label><input class="input_fee" id="fee58" onchange="sumFeeAndsmallSum()"><input class="yokoTotal", id="yokoTotal58"></div>
+      <div class="input_area">09-<input type="number" class="input_amount" id="59" onchange="inputValue(59)"><input type="checkbox" class="B_ourBank" id="OBK59" onchange="inputValue(59)"><label class="toggle-button" for="OBK59">自金庫</label><input class="input_fee" id="fee59" onchange="sumFeeAndsmallSum()"><input class="yokoTotal", id="yokoTotal59"></div>
+      <div class="input_area">10-<input type="number" class="input_amount" id="60" onchange="inputValue(60)"><input type="checkbox" class="B_ourBank" id="OBK60" onchange="inputValue(60)"><label class="toggle-button" for="OBK60">自金庫</label><input class="input_fee" id="fee60" onchange="sumFeeAndsmallSum()"><input class="yokoTotal", id="yokoTotal60"></div>
+    </div>
+    <div class="total">
+      <div>6:_ <input class="input_total" id="sSum5"><input class="numOfData" id="numOfData5"><input class="input_fee" id="totalFee5"><input class="yokoTotal", id="totalYokoTotal5"></div>
+    </div>
+  </div>
+  
+<script language="javascript" type="text/javascript" src=".\fundstransfer.js" charset="UTF-8"></script>
+</body>
