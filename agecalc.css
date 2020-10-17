@@ -1,0 +1,75 @@
+.yearType{
+  font-size: 18px;
+  width: 120px;
+  height: 30px;
+  margin-bottom: 2mm;
+  margin-left: 15px;
+}
+
+.inputArea{
+  font-size: 18px;
+  width: 100px;
+  height: 30px;
+  text-align: right;
+  margin-bottom: 2mm;
+  margin-left: 15px;
+  
+}
+
+.resultZone{
+  margin-top: 30px;
+  margin-left: 15px;
+  margin-bottom: 30px;
+}
+
+.Rz{float: left;}
+
+.resulArea{
+  background-color: rgb(193, 188, 206);
+  width:50px;
+  margin-left:2px;
+  height: 25px;
+}
+
+
+.date{
+  background-color: rgb(1, 97, 153);
+  height: 25px;
+  width: 150px;
+  color: #FFFFFF;
+  text-indent: 2mm;
+  margin-left: 52px;
+} 
+
+p{
+  margin-top: 0mm;
+  margin-bottom: 2mm;
+}
+
+.tableRemark{
+  margin-top: 15px;
+  width: 390px;
+  font-size: 10px;
+  text-align: right;
+}
+
+table{
+  border-collapse: collapse;
+  border: solid 1px;
+  margin-left: 0px;
+  margin-top: 0px;
+}
+
+table th, table td {
+  border: solid 1px black;
+  /*実線 1px 黒*/
+}
+
+th{
+  background-color: antiquewhite;
+}
+
+td{
+  text-align: right;
+}
+
