@@ -1,0 +1,51 @@
+
+<!DOCTYPE html>
+<head>
+  <title>DS年齢計算</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=400, minimum-scale=1.0, maximum-scale=2.0" />
+  <meta class="description" content="ディスクリプションはとりあえず未設定" />
+  <link rel="stylesheet" type="text/css" href ="agecalc.css">
+  
+</head>
+<body>
+  <h1>年齢計算</h1>
+  <div>
+    <br>
+      <select name="yearType" class="yearType" id="yearType" onchange="goNext();">
+        <option value="西暦">西暦</option>
+        <option value="昭和">昭和</option>
+        <option value="平成">平成</option>
+        <option value="令和">令和</option>
+      </select>
+    </br>
+    <input type="number" class="inputArea" id="year" onfocus="this.select();" onchange="startBD()">年<br>
+    <input type="number" class="inputArea" id="month" onfocus="this.select();" onchange="startBD()">月<br>
+    <input type="number" class="inputArea" id="day" onfocus="this.select();" onchange="startBD()">日
+  </div>
+  <div class="resultZone">
+    <div class="Rz">
+      <p class="resulArea" >和暦：</p>
+      <p class="resulArea" >西暦：</p>
+      <p class="resulArea" >年齢：</p>
+    </div>
+    <div>
+      <p class="date" id="wareki">showHere</p>
+      <p class="date" id="seireki">showHere</p>
+      <p class="date" id="age">showHere</p>
+    </div>
+  </div>
+
+  <p class="tableRemark">4月1日時点の年齢表</p>
+  <table id="ageTable">
+    <tr>
+      <th width="70px">西暦</th>
+      <th width="90px">和暦</th>
+      <th width="40px">年齢</th>
+      <th width="100px">イベント</th>
+      <th width="60px">備考</th>
+    </tr>
+
+  </table>  
+  <script type="text/javascript" src="agecalc.js"></script>
+</body>
