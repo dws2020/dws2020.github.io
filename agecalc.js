@@ -134,6 +134,7 @@ function createAgeTable(BDyyyy,BDmm,BDdd){
           break;
       }
     newCell.appendChild(newText);
+    newCell.setAttribute('contentEditable', 'true');
 
     newCell = newRow.insertCell();
     let yyyy = new Date()
