@@ -1,5 +1,7 @@
 body {color: #333333;}
 input {
+  box-shadow: none;
+  border-radius: 0;
   border: none;
   border-bottom: 1px solid #a9a9a9;}
 
