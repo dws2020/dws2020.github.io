@@ -19,13 +19,14 @@
     
     header {
       width: 100%;
-      height: 65px;
+      height: 55px;
       background-color: rgba(68, 65, 65,0.8);
       color: white;
       position: fixed;
       top: 0;
       right: 0;
       z-index: 10;
+      box-shadow: 0px 2px 8px 2px #a0a0a0;
     }
     .container {
       width: 100%;
@@ -33,7 +34,7 @@
 /*ハンバーガーメニュー*/
     .menu {
       width: 70px;
-      height: 65px;
+      height: 55px;
       margin: 0;  
       cursor: pointer;
       text-align: center;
@@ -47,12 +48,14 @@
       height: 30px;
       cursor: pointer;
       color: rgb(150,150,150);
-      top: 15px;
+      top: 50%;
+      left: 10px;
+      transform: translate(-50%, -50%);
     }
     .menu-btn i {
       position: absolute;
       width: 100%;
-      height: 4px;
+      height: 2px;
       background-color: rgb(157, 158, 160);
       border-radius: 3px;
       transition: all 0.5s;
@@ -61,19 +64,19 @@
     .menu-btn i:nth-child(2){top:0; bottom:0; margin: auto 0;}
     .menu-btn i:nth-child(3){bottom:0;}
 
-    .menu-btn.show i:nth-child(1){transform: translateY(13px) rotate(45deg);}
+    .menu-btn.show i:nth-child(1){transform: translateY(14px) rotate(45deg);}
     .menu-btn.show i:nth-child(2){opacity: 0;}
-    .menu-btn.show i:nth-child(3){transform: translateY(-13px) rotate(-45deg);}
+    .menu-btn.show i:nth-child(3){transform: translateY(-14px) rotate(-45deg);}
 
     .menu-list {
       width: 300px;
       background-color: rgb(199, 190, 190);
       padding: 10px 0 50px 0;
-      margin-top: 35px;
+      margin-top: 25px;
       border-radius: 0 0 15px 15px;
       opacity: 0;
       visibility: hidden;
-      transition: all 0.5s;
+      transition: all 0.3s;
       display: none;
     }
     .menu-list.show {
@@ -128,21 +131,22 @@
       padding: 20px 5px;
       margin: 10px 5px 10px;
       font-kerning: inherit;
-      color: #dcdcdc;
+      color: #606060;
       vertical-align: middle;
       text-align: center;      
       position: relative;
       top: 100%;
-      color: #808080;
-      background-color: #dcdcdc;
+      background-color: #fafafa;
       border-radius: 4px;
-      box-shadow: 2px 2px 2px rgb(199, 190, 190);
+      box-shadow: 0px 0px 6px 0px rgb(199, 190, 190);
       cursor: pointer;
       font-family: 'Kanit', sans-serif;
       text-decoration: none;
+      transition: all 0.3s;
     }
     .btn:hover{
-      opacity: 0.9;
+      background-color: #606060;
+      color: #fafafa;
     }
 
     /*-------------------下段固定のメニュー--------------------*/
@@ -264,7 +268,15 @@
   <script>$(function(){
       $('.menu').click(function(){
         $('.menu-btn, .menu-list').toggleClass('show');
+        $('.menu-list.show').slideDown();
       });
+
+      $('.menu').hover(
+        function(){$('.menu-btn i').css('background-color', 'white');},
+        function(){$('.menu-btn i').css('background-color', 'rgb(157, 158, 160)');}
+      );
+
+
     });
   </script>
 </body>
