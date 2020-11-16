@@ -76,13 +76,14 @@
       margin-top: 25px;
       border-radius: 0 0 15px 15px;
       opacity: 0;
-      visibility: hidden;
+      /*visibility: hidden;*/
       transition: all 0.3s;
       display: none;
     }
+
     .menu-list.show {
-      opacity: 1;
-      visibility: visible;
+      opacity: 0.9;
+      /*visibility: visible;*/
       display: block;
     }
     .menu-list ul {
@@ -267,18 +268,25 @@
   </footer>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
   <script>$(function(){
+      
       $('.menu').click(function(){
-        $('.menu-btn, .menu-list').toggleClass('show');
-        $('.menu-list.show').slideDown();
+        if ( $('.menu-btn').hasClass('show') ) {
+          $('.menu-list').slideUp();          
+          $('.menu-btn, .menu-list').removeClass('show');
+          $('.top').css('opacity', '1');
+        }else{
+          $('.menu-list').show(200);          
+          $('.menu-btn, .menu-list').addClass('show');
+          $('.top').css('opacity', '0.5');
+        }
       });
 
       $('.menu').hover(
         function(){$('.menu-btn i').css('background-color', 'white');},
         function(){$('.menu-btn i').css('background-color', 'rgb(157, 158, 160)');}
       );
-
-
-    });
+      
+  });
   </script>
 </body>
 </html>
