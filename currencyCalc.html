@@ -18,7 +18,7 @@
             text-align: right;
             line-height: 50px;
         }
-        .numArea, .amountArea {
+        .numArea, .amountArea, .amountArea_total{
             padding-top   : 4px;
             padding-right : 4px;
             padding-bottom: 2px;
@@ -29,7 +29,7 @@
         }
         @media screen and (max-width: 480px) {
 	    /* 480px以下に適用されるCSS（スマホ用） */
-        .numArea, .amountArea {
+        .numArea, .amountArea, .amountArea_total{
             width: 20%;
             font-size: 14px;
         }
@@ -109,7 +109,7 @@
                 <div class="amount">合計</div>
                 <input type="text" class="numArea" id="total_wad" value=0 />束
                 <input type="text" class="numArea" id="total_num" value=0 />枚
-                <input type="text" class="amountArea" id="total_amount" value=0 />円
+                <input type="text" class="amountArea_total" id="total_amount" value=0 />円
             </div>
             <button class="btn-clear" id="btn-clear">クリア</button>
         </main>
@@ -196,7 +196,6 @@
                 let removed_str = e.value.replace(/,/g, '');
                 let amount = parseInt( removed_str, 10 );
                 total_amount += amount;
-                
             });
             document.getElementById('total_wad').value = total_wad;           
             document.getElementById('total_num').value = total_num;
