@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Currency Calc</title>
+    <style>
+        main { margin:50px 10px; }
+        .t-row { 
+            display: flex;
+            flex-direction: row;
+            height: 50px;
+            line-height: 50px;
+        }
+        .amount {
+            width: 80px;
+            text-align: right;
+            line-height: 50px;
+        }
+        .numArea, .amountArea {
+            padding-top   : 4px;
+            padding-right : 4px;
+            padding-bottom: 2px;
+            width: 150px;
+            text-align    : right;
+            font-size: 20px;
+            /* font-weight   : bold; */
+        }
+        @media screen and (max-width: 480px) {
+	    /* 480px以下に適用されるCSS（スマホ用） */
+        .numArea, .amountArea {
+            width: 20%;
+            font-size: 14px;
+        }
+        .amountArea {
+            width: 25%;
+        }
+        }
+    </style>
+</head>
+<body>
+    <div class="contaier">
+        <main>
+            <div class="t-row">
+                <div class="amount">10000</div>
+                <input type="number" class="numArea wad" value=0 />束
+                <input type="number" class="numArea num" value=0 />枚
+                <input type="text" class="amountArea" value=0 />円
+            </div>
+            <div class="t-row">
+                <div class="amount">5000</div>
+                <input type="number" class="numArea wad" value=0 />束
+                <input type="number" class="numArea num" value=0 />枚
+                <input type="text" class="amountArea" value=0 />円
+            </div>
+            <div class="t-row">
+                <div class="amount">2000</div>
+                <input type="number" class="numArea wad" value=0 />束
+                <input type="number" class="numArea num" value=0 />枚
+                <input type="text" class="amountArea" value=0 />円
+            </div>
+            <div class="t-row">
+                <div class="amount">1000</div>
+                <input type="number" class="numArea wad" value=0 />束
+                <input type="number" class="numArea num" value=0 />枚
+                <input type="text" class="amountArea" value=0 />円
+            </div>
+            <hr>
+            <div class="t-row">
+                <div class="amount">500</div>
+                <input type="number" class="numArea wad" value=0 />束
+                <input type="number" class="numArea num" value=0 />枚
+                <input type="text" class="amountArea" value=0 />円
+            </div>
+            <div class="t-row">
+                <div class="amount">100</div>
+                <input type="number" class="numArea wad" value=0 />束
+                <input type="number" class="numArea num" value=0 />枚
+                <input type="text" class="amountArea" value=0 />円
+            </div>
+            <div class="t-row">
+                <div class="amount">50</div>
+                <input type="number" class="numArea wad" value=0 />束
+                <input type="number" class="numArea num" value=0 />枚
+                <input type="text" class="amountArea" value=0 />円
+            </div>
+            <div class="t-row">
+                <div class="amount">10</div>
+                <input type="number" class="numArea wad" value=0 />束
+                <input type="number" class="numArea num" value=0 />枚
+                <input type="text" class="amountArea" value=0 />円
+            </div>
+            <div class="t-row">
+                <div class="amount">5</div>
+                <input type="number" class="numArea wad" value=0 />束
+                <input type="number" class="numArea num" value=0 />枚
+                <input type="text" class="amountArea" value=0 />円
+            </div>
+            <div class="t-row">
+                <div class="amount">1</div>
+                <input type="number" class="numArea wad" value=0 />束
+                <input type="number" class="numArea num" value=0 />枚
+                <input type="text" class="amountArea" value=0 />円
+            </div>
+            <!-- ****TOTAL****************************************** -->
+            <hr>
+            <div class="t-row">
+                <div class="amount">合計</div>
+                <input type="text" class="numArea" id="total_wad" value=0 />束
+                <input type="text" class="numArea" id="total_num" value=0 />枚
+                <input type="text" class="amountArea" id="total_amount" value=0 />円
+            </div>
+            <button class="btn-clear" id="btn-clear">クリア</button>
+        </main>
+    </div>
+    <script>
+        // 束数と枚数欄に入力したときの計算
+        let target_N = document.querySelectorAll('.numArea');
+        target_N.forEach(function (target_N){            
+            target_N.addEventListener('change', 
+            function(){
+                let eachPrice = parseInt( target_N.parentElement.getElementsByClassName('amount')[0].innerText, 10 );
+                let num_wad = parseInt( target_N.parentElement.getElementsByClassName('numArea')[0].value, 10 );
+                let num  = parseInt( target_N.parentElement.getElementsByClassName('numArea')[1].value, 10 );
+                let wad
+                if ( eachPrice >= 1000 ) { wad = 100; } else { wad = 50; }
+                if ( isNaN(num_wad) == true ){
+                    num_wad = 0;
+                    target_N.parentElement.getElementsByClassName('numArea')[0].value = 0;
+                }
+                if ( isNaN(num) == true ){
+                    num = 0;
+                    target_N.parentElement.getElementsByClassName('numArea')[1].value = 0;  
+                }
+                
+                let amount = (eachPrice * wad * num_wad) + (eachPrice * num);
+                target_N.parentElement.getElementsByClassName('amountArea')[0].value = amount.toLocaleString();
+                sumAll();
+            },false);
+        });
+
+        // 金種別小計欄に入力したときの計算
+        let target_A = document.querySelectorAll('.amountArea');
+        target_A.forEach(function(target_A){
+            target_A.addEventListener('change', 
+            function(){
+                // 入力されているコンマ桁切りの数字を、桁ギリなしにする。
+                let removed_str = target_A.value.replace(/,/g, '');
+                target_A.value = parseInt(removed_str, 10);
+                let amount = parseInt( target_A.value, 10 );
+                // 金額欄を桁切り表示した数字を表示する
+                target_A.value = amount.toLocaleString();
+                // 束数と枚数を計算する
+                let eachPrice = parseInt( target_A.parentElement.getElementsByClassName('amount')[0].innerText, 10 );
+                let wad;
+                if ( eachPrice >= 1000 ) { wad = 100; } else { wad = 50; }
+                if ( isNaN(parseInt(amount,10)) == true){
+                    amount = 0;
+                    target_A.value = 0;
+                }
+                if ( amount % eachPrice != 0 ) {
+                    amount = 0;
+                    target_A.value = 0;
+                    alert ("No!");
+                }
+
+                let num_wad;
+                if ( amount % ( eachPrice * wad ) < 0 ){
+                    num_wad = 0;
+                } else {
+                    num_wad = parseInt( amount / (eachPrice * wad), 10);
+                }
+                let num = parseInt( (amount - (eachPrice * num_wad * wad)) / eachPrice, 10 );
+                target_A.parentElement.getElementsByClassName('numArea')[0].value = num_wad;               
+                target_A.parentElement.getElementsByClassName('numArea')[1].value = num;
+                sumAll();
+            },false);
+        });
+        
+        function sumAll(){
+            let inputTag_wad = document.querySelectorAll('.wad');
+            let inputTag_num = document.querySelectorAll('.num');
+            let inputTag_amount = document.querySelectorAll('.amountArea');
+            let total_wad = 0;
+            let total_num = 0;
+            let total_amount = 0;
+            inputTag_wad.forEach(function(e){
+                total_wad += parseInt(e.value, 10);
+            });
+            inputTag_num.forEach(function(e){
+                total_num += parseInt(e.value, 10);
+            });
+            inputTag_amount.forEach(function(e){
+                // 入力されているコンマ桁切りの数字を、桁ギリなしにする。
+                let removed_str = e.value.replace(/,/g, '');
+                let amount = parseInt( removed_str, 10 );
+                total_amount += amount;
+                
+            });
+            document.getElementById('total_wad').value = total_wad;           
+            document.getElementById('total_num').value = total_num;
+            document.getElementById('total_amount').value = total_amount.toLocaleString();
+        }
+
+        let btnClear = document.getElementById('btn-clear');
+        btnClear.addEventListener('click', function(){
+            let inputTag = document.querySelectorAll('input');
+            inputTag.forEach(function(e){
+                e.value = 0;
+            });
+        });
+    </script>
+    <script type="text/javascript" src="./CurrencyCalc.js"></script>
+</body>
+</html>
