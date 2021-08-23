@@ -10,6 +10,7 @@
         .t-row { 
             display: flex;
             flex-direction: row;
+            justify-content: space-between;
             height: 50px;
             line-height: 50px;
         }
@@ -33,6 +34,9 @@
         .bill2000 {
             background-color: rgb(230,230,230);
             color: rgb(180,180,180);
+        }
+        .btn-clear {
+            margin : 10px 10px;
         }
 
         @media screen and (max-width: 480px) {
@@ -117,9 +121,13 @@
                 <div class="amount">合計</div>
                 <input type="text" class="numArea total" id="total_wad" value=0 />束
                 <input type="text" class="numArea total" id="total_num" value=0 />枚
-                <input type="text" class="amountArea _total total" id="total_amount" value=0 />円
+                <input type="text" class="amountArea_total total" id="total_amount" value=0 />円
             </div>
-            <button class="btn-clear" id="btn-clear">クリア</button>
+            <div class="t-row">
+                <div class="amount">総枚数</div>
+                <input type="text" class='amountArea_total total' id='total_billAndCoin' value=0 />枚
+                <button class="btn-clear" id="btn-clear">クリア</button>
+            </div>
         </main>
     </div>
     <script>
@@ -208,6 +216,24 @@
             document.getElementById('total_wad').value = total_wad;           
             document.getElementById('total_num').value = total_num;
             document.getElementById('total_amount').value = total_amount.toLocaleString();
+            getTotalNum();
+        }
+        function getTotalNum(){
+            let total_billAndCoin = 0;
+            let numOfWad;
+            let numOfNum;
+            let wad_ele = document.querySelectorAll('.wad');
+            let num_ele = document.querySelectorAll('.num');
+            let wads;
+            for (let i = 0; i <= 9; i++) {
+                let Price = parseInt( wad_ele[i].parentElement.getElementsByClassName('amount')[0].innerText, 10 );
+                numOfWad = parseInt( wad_ele[i].parentElement.getElementsByClassName('wad')[0].value, 10 );
+                numOfNum = parseInt( num_ele[i].parentElement.getElementsByClassName('num')[0].value, 10 );
+                if ( Price >= 1000 ) { wads = 100; } else { wads = 50; }
+                total_billAndCoin += ( wads * numOfWad ) + numOfNum;
+            }
+            console.log (total_billAndCoin)
+            document.getElementById('total_billAndCoin').value = total_billAndCoin;
         }
 
         let btnClear = document.getElementById('btn-clear');
