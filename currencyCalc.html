@@ -233,8 +233,7 @@
                 if ( Price >= 1000 ) { wads = 100; } else { wads = 50; }
                 total_billAndCoin += ( wads * numOfWad ) + numOfNum;
             }
-            console.log (total_billAndCoin)
-            document.getElementById('total_billAndCoin').value = total_billAndCoin.toLocaleString;
+            document.getElementById('total_billAndCoin').value = total_billAndCoin;
         }
 
         let btnClear = document.getElementById('btn-clear');
