@@ -234,7 +234,7 @@
                 total_billAndCoin += ( wads * numOfWad ) + numOfNum;
             }
             console.log (total_billAndCoin)
-            document.getElementById('total_billAndCoin').value = total_billAndCoin;
+            document.getElementById('total_billAndCoin').value = total_billAndCoin.toLocaleString;
         }
 
         let btnClear = document.getElementById('btn-clear');
