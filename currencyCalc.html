@@ -10,7 +10,7 @@
         .t-row { 
             display: flex;
             flex-direction: row;
-            justify-content: space-between;
+            /* justify-content: space-between; */
             height: 50px;
             line-height: 50px;
         }
@@ -36,7 +36,7 @@
             color: rgb(180,180,180);
         }
         .btn-clear {
-            margin : 10px 10px;
+            margin : 10px 50px;
         }
 
         @media screen and (max-width: 480px) {
@@ -123,7 +123,7 @@
                 <input type="text" class="numArea total" id="total_num" value=0 />枚
                 <input type="text" class="amountArea_total total" id="total_amount" value=0 />円
             </div>
-            <div class="t-row">
+            <div class="t-row" style="margin: 30px 0">
                 <div class="amount">総枚数</div>
                 <input type="text" class='amountArea_total total' id='total_billAndCoin' value=0 />枚
                 <button class="btn-clear" id="btn-clear">クリア</button>
