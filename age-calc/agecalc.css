@@ -71,6 +71,11 @@ table th, table td {
   /*実線 1px */
 }
 
+table#ageTable th{
+  position: sticky;
+  top: 0;
+}
+
 th{
   background-color: antiquewhite;
 }
